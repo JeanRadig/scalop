@@ -21,7 +21,7 @@
   _R_ !!
 */
 
-#include "S.h"
+#include <R.h>
 
 #if defined(USING_R) /*( R-specific stuff */
 
@@ -34,13 +34,13 @@
 
 #include "scalop.h"
 #include <Rmath.h>
-#include "R_ext/Error.h"
-#include "R_ext/Applic.h" 
+#include <R_ext/Error.h>
+#include <R_ext/Applic.h>
 
 #else /*) Splus-specific stuff */
 
 #define S_COMPATIBILITY 1
-#include "rsplus.h"
+#include <rsplus.h>
 #endif
 
 typedef struct {
@@ -63,8 +63,6 @@ static void detectTies(RSInt geneNum, RSInt nResults, RSInt nRows, gene_t *data)
     
     for (i = 1; i < nResults; i++) {
 	if (data[i].geneDist == data[i+1].geneDist) {
-	    PROBLEM "There are distance ties in the data for gene %d\n",geneNum
-            WARN;
 	    break;
 	}
     }

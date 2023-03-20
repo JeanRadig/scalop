@@ -34,5 +34,6 @@ hierarchy = function(m, quadrants = NULL, log.scale = T) {
     if (!log.scale) dat = dplyr::transmute(dat, X = x, Y = y)
     else dat = dplyr::transmute(dat, X = x.scaled, Y = y.scaled)
     rownames(dat) = rows
+    class(dat) = append(class(dat), 'hierarchy')
     dat
 }
