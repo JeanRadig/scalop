@@ -37,6 +37,12 @@ programs = function(m,
     sig2 = sapply(deas, function(df) sum(df$p.adj <= 0.001, na.rm = TRUE))
     sig3 = sapply(deas, function(df) sum(df$p.adj <= 0.0001, na.rm = TRUE))
     bool = sig1 >= nsig1 & sig2 >= nsig2
+    # Checks if at least one group has enough differentially expressed genes. Otherwise,
+    # jacFilt throws an error.
+    if(sum(bool)==0){
+        return(NULL)
+    }
+
     deas = deas[bool]
     groups = groups[bool]
     sig1 = sig1[bool]
@@ -48,6 +54,7 @@ programs = function(m,
     sig1 = sig1[ord]
     sig2 = sig2[ord]
     sig3 = sig3[ord]
+
     jac.pass = jacFilt(groups, threshold = jaccard, which = TRUE)
     deas = deas[jac.pass]
     groups = groups[jac.pass]
@@ -62,12 +69,12 @@ programs = function(m,
                p = NULL,
                lfc = NULL, 
                pmethod = pmethod)
-    list(programs = programs,
+    return(list(programs = programs,
          profiles = lfcs,
          groups = groups,
          deas = deas,
          sig1 = sig1,
          sig2 = sig2,
-         sig3 = sig3)
+         sig3 = sig3))
 }
 
