@@ -26,7 +26,6 @@ Imports:
     Rcpp,
     methods,
     magrittr,
-    ggpubr,
     gtable,
     tibble,
     matrixStats,
@@ -48,11 +47,9 @@ Imports:
     RColorBrewer,
     nor1mix,
     ggrepel,
-    clusterProfiler,
     msigdbr,
     irlba,
     Rtsne,
-    scran,
     igraph,
     plyr
 Remotes: jlaffy/brewerland
