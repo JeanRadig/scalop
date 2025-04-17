@@ -3,7 +3,7 @@
 ### Installation
 - Requirements: Docker. E.g. I have `Docker version 26.1.3, build 26.1.3-0ubuntu1~22.04.1` installed. 
 - Open the folder in the container. cmd + shift + P: "Dev Containers: Rebuild and Reopen in Container"
-
+- Activate kernel "R (scalop_env)" in `vignettes/03_annotate_cell_states.ipynb`. 
 - If you do not want to use docker, you can install this version of the code as a package using:
 ```python
 install.packages("remotes")
