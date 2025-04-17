@@ -87,7 +87,7 @@
         if (dist.end) return(res)
     }
 
-    if (inherits(x, 'dist')） {
+    if (inherits(x, 'dist')) {
         x = .hca_tree(x, method = cluster.method)
         res = c(res, list(tree = x, order = x$labels[x$order]))
         if (hclust.end) return(res)
