@@ -22,7 +22,7 @@ RUN bash -c "source /opt/conda/etc/profile.d/conda.sh && \
     R -e \"install.packages('Matrix', repos='https://cloud.r-project.org', quiet = TRUE)\" && \
     R -e \"install.packages('dplyr', repos='https://cloud.r-project.org', quiet = TRUE)\" && \
     R -e \"install.packages('remotes', repos='https://cloud.r-project.org', quiet = TRUE)\" && \
-    R -e \"remotes::install_github('BoevaLab/scalop')\" && \
+    R -e \"remotes::install_github('JeanRadig/scalop')\" && \
     R -e \"install.packages('tidyverse', repos='https://cloud.r-project.org', quiet = TRUE)\""
 
 # Install Python dependencies quietly
