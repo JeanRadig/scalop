@@ -87,13 +87,13 @@
         if (dist.end) return(res)
     }
 
-    if (class(x)[1] == 'dist') {
+    if (inherits(x, 'dist')） {
         x = .hca_tree(x, method = cluster.method)
         res = c(res, list(tree = x, order = x$labels[x$order]))
         if (hclust.end) return(res)
     }
 
-    if (class(x)[1] == 'hclust') {
+    if (inherits(x, 'hclust')) {
         if (is.null(h)) h = res$tree$height
         x = .hca_cutree(x,
                         k = k,
