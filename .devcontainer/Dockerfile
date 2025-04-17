@@ -16,14 +16,19 @@ RUN bash -c "source /opt/conda/etc/profile.d/conda.sh && \
     conda activate scalop_env && \
     conda install -c conda-forge r-curl r-textshaping r-ragg r-haven -y -q && \
     R -e \"options(repos = c(CRAN = 'https://cloud.r-project.org')); \
-           if (!requireNamespace('BiocManager', quietly = TRUE)) install.packages('BiocManager', quiet = TRUE)\" && \
+           if (!requireNamespace('BiocManager', quietly = TRUE)) install.packages('BiocManager', quiet = TRUE); \
+           if (!requireNamespace('remotes', quietly = TRUE)) install.packages('remotes', quiet = TRUE)\" && \
     R -e \"BiocManager::install('zellkonverter', ask = FALSE, quiet = TRUE)\" && \
     R -e \"BiocManager::install('SingleCellExperiment', ask = FALSE, quiet = TRUE)\" && \
     R -e \"install.packages('Matrix', repos='https://cloud.r-project.org', quiet = TRUE)\" && \
     R -e \"install.packages('dplyr', repos='https://cloud.r-project.org', quiet = TRUE)\" && \
-    R -e \"install.packages('remotes', repos='https://cloud.r-project.org', quiet = TRUE)\" && \
-    R -e \"remotes::install_github('JeanRadig/scalop')\" && \
     R -e \"install.packages('tidyverse', repos='https://cloud.r-project.org', quiet = TRUE)\""
+
+
+RUN bash -c "source /opt/conda/etc/profile.d/conda.sh && \
+    conda activate scalop_env && \
+    R -e \"remotes::install_github('JeanRadig/scalop')\""
+
 
 # Install Python dependencies quietly
 RUN bash -c "source /opt/conda/etc/profile.d/conda.sh && \
