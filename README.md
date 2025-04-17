@@ -4,6 +4,12 @@
 - Requirements: Docker. E.g. I have `Docker version 26.1.3, build 26.1.3-0ubuntu1~22.04.1` installed. 
 - Open the folder in the container. cmd + shift + P: "Dev Containers: Rebuild and Reopen in Container"
 
+- If you do not want to use docker, you can install this version of the code as a package using:
+```python
+install.packages("remotes")
+remotes::install_github("JeanRadig/scalop")
+```
+
 ### Load an h5ad file using zellkonverter
 We enable loading of h5ad data via usage of zellkonverter library.  
 
